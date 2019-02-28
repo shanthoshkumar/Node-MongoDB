@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <div class="row">
+    <div class="col-sm-9">
+        <p style="text-align: center">{{time}}</p>
+      <div class="row">
+        <div class="col-sm-4">
+            <input type="number" class="form-control"  placeholder="Enter Jersy No" #jno> 
+            <input type="text"  class="form-control" placeholder="Enter Player Name" #name> 
+            <input type="number"  class="form-control" placeholder="Enter ICC Rank" #rank> 
+            <button class="btn btn-primary" (click)="add(jno.value,name.value,rank.value)">Insert</button>
+        </div>
+        <div class="col-sm-4">
+            <input type="number"  class="form-control" placeholder="Enter Jersy No" #upd_jno> 
+            <input type="text"  class="form-control" placeholder="Enter Player Name" #upd_name> 
+            <input type="number"  class="form-control" placeholder="Enter ICC Rank" #upd_rank> 
+            <button class="btn btn-success" (click)="update(upd_jno.value,upd_name.value,upd_rank.value)">Update</button>
+          </div>
+          <div class="col-sm-4">
+              <input type="number"  class="form-control" placeholder="Enter Jersy No" #del_jno> 
+              <button class="btn btn-danger" (click)="delete(del_jno.value)">Delete</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px">
+            <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+            <button class="btn btn-info" (click)="drop()">Clear Database</button>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+      <table>
+        <thead>
+          <tr>
+            <!-- <th>SNo</th> -->
+            <th>Jersy No</th>
+            <th>Player Name</th>
+            <th>Player Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of player_list;let count=index">
+            <!-- <td>{{count+1}}</td> -->
+            <td>{{i.JERSY}}</td>
+            <td>{{i.NAME}}</td>
+            <td>{{i.RANK}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
